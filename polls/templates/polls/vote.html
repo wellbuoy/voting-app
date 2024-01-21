@@ -1,0 +1,29 @@
+{% extends 'polls/base.html' %}
+{% block content %}
+
+
+<h3 style = "margin-bottom: 20px"><strong>Pick your choice</strong></h3>
+
+<h4>{{question.question_text}}</h4>
+
+<form method="POST" action=" {% url 'result' question.id %} ">
+    {% csrf_token %}
+<ul class="list-group" style="margin:0px">
+    {% for choice_text in options %}
+    
+    <label>
+        <li class="list-group-item">
+            <input class="form-check-input me-1" type="radio" name = 'choice' value="{{choice_text.id}}" aria-label="...">
+            {{choice_text.choice_text}}
+          </li>
+    </label>
+    {% endfor %}
+
+    
+</ul>
+<input type="submit" value = "Submit" class = 'btn btn-primary'>
+</form>
+
+
+
+{% endblock %}

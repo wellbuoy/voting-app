@@ -1,0 +1,27 @@
+{% extends 'polls/base.html' %}
+{% block content %}
+
+
+<h3 style = "margin-bottom: 20px"><strong>Results</strong></h3>
+
+<h4>{{question.question_text}}</h4>
+
+<ul class="list-group">
+{% for choice_text in options %}
+<li class="list-group-item d-flex justify-content-between align-items-center">
+    {{choice_text.choice_text}}
+    <span class="badge bg-primary rounded-pill">{{choice_text.votes}}%</span>
+  </li>
+  {% endfor %}
+
+
+  
+</ul>
+
+
+
+
+
+
+
+{% endblock %}
